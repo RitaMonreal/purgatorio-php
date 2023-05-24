@@ -46,7 +46,7 @@
         </div> 
 
         <div id ="contenedorPublic">
-            <div id="portadaP" style="margin: auto;">
+            <div id="portadaP" style="margin: auto;" onclick="window.location.href = './CRUD/logica/Direccionamiento-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
            <?php
                 $tituloP = mysqli_fetch_array($query);
            ?>
@@ -57,7 +57,7 @@
             while($row = mysqli_fetch_array($query)){?>
 
             
-            <div id="articulo">
+            <div id="articulo" onclick="window.location.href = './CRUD/logica/Direccionamiento-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
                 
                 <div id="fotoArticulo" style="background-image: url(./assets/rihanna.jpg); ">
                 
