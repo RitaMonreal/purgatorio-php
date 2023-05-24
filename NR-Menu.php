@@ -1,7 +1,7 @@
 <?php
     require './CRUD/logica/conexion.php';
 
-    $consulta = "SELECT * FROM publicacion";
+    $consulta = "SELECT * FROM `publicacion` WHERE categoria_publicacion=3";
     $query = mysqli_query($conexion, $consulta);
   /*  $resultado = mysqli_fetch_array($query);
 

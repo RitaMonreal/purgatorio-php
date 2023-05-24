@@ -1,7 +1,7 @@
 <?php
     require './CRUD/logica/conexion.php';
 
-    $consulta = "SELECT * FROM articulos";
+    $consulta = "SELECT * FROM publicacion";
     $query = mysqli_query($conexion, $consulta);
   /*  $resultado = mysqli_fetch_array($query);
 
@@ -51,7 +51,7 @@
                 $tituloP = mysqli_fetch_array($query);
            ?>
        
-                <p id="tituloPrincipal" ><?php echo $tituloP['titulo'];?></p>
+                <p id="tituloPrincipal" ><?php echo $tituloP['titulo_publicacion'];?></p>
             </div>
             <?php
             while($row = mysqli_fetch_array($query)){?>
@@ -64,7 +64,7 @@
                 </div>
                 <div id="titulo" style="background:#F5F5F5" onmouseover="this.style.background='black';" onmouseout="this.style.background='#F5F5F5';">
                 
-                <p onmouseenter="changecolor(this)" onmouseleave="setnormal(this)"><?php echo $row['titulo'] ?></p> 
+                <p onmouseenter="changecolor(this)" onmouseleave="setnormal(this)"><?php echo $row['titulo_publicacion'] ?></p> 
                 </div>
             </div>
             <?php
