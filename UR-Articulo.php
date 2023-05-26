@@ -1,14 +1,27 @@
 <?php
-    require './CRUD/logica/conexion.php';
+    require './logica/conexion.php';
+    
 
-    $consulta = "SELECT * FROM publicacion";
+   if(!isset($_GET['id'])){
+        header("Location: http://localhost/Entrega/NR-Menu.php?error=No se econtró el articulo");
+    }
+       
+    $consulta = "SELECT * FROM publicacion WHERE id_publicacion=".$_GET['id'];
     $query = mysqli_query($conexion, $consulta);
-  /*  $resultado = mysqli_fetch_array($query);
 
-    var_dump($resultado);*/
+    $publicacion = mysqli_fetch_array($query);
+
+    $consulta = "SELECT * FROM categorias WHERE categoria_publicacion=".$publicacion['categoria_publicacion'];
+    $query1 = mysqli_query($conexion, $consulta);
+
+    $categoriaP = mysqli_fetch_array($query1);
+
+    $consulta = "SELECT * FROM usuario WHERE id_usuario=".$publicacion['id_autor'];
+    $query3 = mysqli_query($conexion, $consulta);
+
+    $autorP = mysqli_fetch_array($query3);
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -22,11 +35,6 @@
 
 </head>
 <body>  
-
-<?php
-    $publicacion = mysqli_fetch_array($query);
-?>
-
 
 
 <div class="paginaWeb">
@@ -45,24 +53,23 @@
     </div>
 
     <div id="menuSupDer" style="position: fixed;">
-        <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
-            <li>Notificaciones</li>
-            <li>Idioma: Español</li>
-            <li>Ayuda</li>
-            <li>Configuración</li>
-            <li>Cerrar sesión</li>
-        </ul>
-    </div>
+            <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
+            <li onclick="location.href = './Bookmarks.html';">Bookmarks</li>
+                <li>Idioma: Español</li>
+                <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
+                <li>Cerrar sesión</li>
+            </ul>
+        </div> 
 
     <div class="cuadrodeInicio">
         <div class="cuadrodePublicacion">
             <div class="inicioPublicacion">
                 <div class="tipo">
-                    <a>Portada/</a><a><?php echo $publicacion['categoria_publicacion'] ?></a>
+                    <a>Portada/</a><a><?php echo $categoriaP['categoria'] ?></a>
 
                 </div>
                 <div class="cajadeFecha">
-                <b><?php echo $publicacion['id_autor']?></b>
+                <b><?php echo $autorP['nombre_usuario']?></b>
                     <br>
                     <a ><?php echo $publicacion['fecha_publicacion']?></a>
                 </div>
@@ -71,8 +78,9 @@
             </div>
            <div class="publicacion">
             <div class="titulo">
-            <div style="display: inline-block;"><?php echo $publicacion['titulo_publicacion'] ?></div><div id="bookmark"></div>
-             </div>
+            <?php echo $publicacion['titulo_publicacion'] ?></div>
+            <div id="bookmark" onclick="window.location.href = './Perfil-Usuario.php?id=<?php echo $publicacion['id_publicacion'];?>'"></div>
+             
              <div class="imagenPublicacion">
                 
                    

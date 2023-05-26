@@ -1,0 +1,378 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.paginaweb{
+  height: 100%;
+  width: 100%;
+  background-color: azure;
+}
+
+.cuadroOpciones{
+  height: 5vh;
+  width: 100%;
+  background-color: black;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#bookmark{
+  background-image: url(./assets/bookmark.png) ;
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#menuSupIz{
+  background-color: aqua;
+  height:fit-content;
+  width: fit-content;
+  padding-right: 1%;
+  text-align: left;
+}
+
+#menuSupDer{
+  background-color: aqua;
+  height:fit-content;
+  width: fit-content;
+  text-align:right;
+  margin-left: 83%;
+}
+
+
+
+.inicio{
+   
+  text-align: center;
+  margin-left: 4%;
+  font-size: 18px;
+  color: white;
+}
+
+#unirse
+{
+  margin-left:28%;
+}
+  
+#purgatorio{
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 150px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(./assets/LogoIE.png) ;
+  align-items: center;
+}
+
+.cuadrodeInicio{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+  
+.cuadrodePublicacion{
+    width: 70%;
+}
+
+.inicioPublicacion{
+  width: 95% ;
+  height: 5%;
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 20px;
+  border-bottom: solid 1px black;
+}
+  
+.tipo{
+  font-size: 20px;
+}
+
+.cajadeFecha{
+  font-size: 15px;
+  padding-left: 80px;
+  text-align: center;
+}
+ 
+.publicacion{
+  width: 100%;
+  height: fit-content;
+  padding-left: 10px;
+}
+
+.titulo{
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.imagenPublicacion{
+  height: 50vh;
+  width: 65vw;
+  background-image: url(./assets/taylor.webp) ;
+  background-repeat: no-repeat;
+  background-size:cover;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.contenidoPublicacion{
+  height: fit-content;
+  width: 65vw;
+  text-align: justify;
+  margin: 5px;
+  font-size: 17px; 
+}
+  
+.foroPlegarias{
+  width: 65vw;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 1px black;
+  display: flex;  
+}
+
+.foto{
+  border-radius: 10%;
+  height: 10vh;
+  background-color: rgb(130, 130, 140);
+  width: 5vw;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.comentarioIndividual{
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 10px;
+  font-size: 110%;
+  height: fit-content;
+  text-align: center;
+  color: blueviolet;
+}
+  
+.opinion{
+  width: 50vw;
+  height: fit-content;
+  text-align: justify;
+  display:flex;
+  font-size: 15px;
+  margin-right: 5%;
+  margin-left: 1%;
+}
+
+#perfilComentario{
+  font-size: 17px;
+}
+  
+.sugerencias{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#tituloSugerencia{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sugerenciaImagen{
+  height: 25vh;
+  background-color: rgb(120, 120, 139);
+  width: 80%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.contenidoSugerencia{
+  width: 80%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.likes{
+  height: 5vh;
+  width: 5vw;
+  background-repeat: no-repeat;
+  background-image: url(./assets/like.webp);
+  background-size: contain;
+}
+
+.cuadrodeSugerencia{
+  padding-left: 30px;
+ }
+
+.imagenOpciones{
+  width: 5vh;
+  height: 5vh;
+  background-image: url(./assets/opciones.jpg);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 15px;
+  margin-right: 40%;
+}
+
+.comentarioUsuario{
+  margin-top: 10px;
+  display: flex;
+}
+
+textarea{
+  width: 50vw;
+  height: 9vh;
+}
+ .cajaComentario{
+  margin-left: 10px;
+}
+
+#usuario{
+  margin-left: 38%;
+  margin-right: 0px;
+  width: 4vw;
+  height: 4.5vh;
+  background-image: url(./assets/menuUsuario.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#tablaIzq{
+  list-style: none; 
+  padding-left: 17px;
+}
+
+ /*****************************************************************************/
+ @media screen and (max-width: 760px){
+  .imagenPublicacion{
+    height: 25vh;
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  .contenidoSugerencia{
+    font-size: 10px;
+    font-weight: bold;
+    text-align: justify;
+    width: 70%;
+    height: 25%;
+  }
+
+  .cuadroOpciones{
+    width: 100%;
+  }
+
+
+  .imagenOpciones{
+    margin-left: 2%;
+    margin-right: 5%;
+  }
+
+  .inicio{
+    font-size: 13px;
+    margin-left: 2%;
+  }
+  
+  #unirse{
+    margin-left: 5%;
+  }
+
+  .cuadrodePublicacion{
+    width: 65%;
+  }
+
+  .publicacion{
+    width: 100%;
+    padding-left: 1%;
+  }
+
+  .contenidoPublicacion{
+    width: 100%;
+    font-size: 14px; 
+  }
+
+  .titulo{
+    margin-top: 10%;
+    font-size: 20px;
+    font-weight: bolder;  
+  }
+
+  .cuadrodeSugerencia{
+    padding-left: 4%;
+    width: 30%;
+    height: 10%;
+  }
+
+ .sugerencias{
+    font-size: 15px;
+    margin-top: 4%;
+  }
+
+  .sugerenciaImagen{
+    height: 10vh;
+    margin-bottom: 10%;
+    margin-top: 10%;
+  }
+
+  .foto{
+    border-radius: 10%;
+    height: 7vh;
+    width: 10vw;
+  }
+
+  #textComentario{
+    font-size: 9px;
+    height: fit-content;
+    text-align: center;
+  }
+  
+  .opinion{
+    width: 50%;
+    height: fit-content;
+    font-size: 15px;
+    margin-right: 5%;
+    margin-left: 1%;
+  }
+  
+  .cajaComentario
+  {
+    margin-left: 2%;
+  }
+
+  #usuario{
+    margin-left: 25%;
+    margin-right: 0px;
+    width: 10vw;
+    height: 10.5vh;
+  }
+
+  #menuSupDer{
+    background-color: aqua;
+    height:fit-content;
+    width: fit-content;
+    text-align:right;
+    margin-left: 50%;
+    font-size: 13px;
+  }
+
+  #menuSupIz{
+    background-color: aqua;
+    height: fit-content;
+    width: fit-content;
+    padding-right: 8%;
+    text-align: left;
+    font-size: 13px;
+  }
+
+}
+
+
+  

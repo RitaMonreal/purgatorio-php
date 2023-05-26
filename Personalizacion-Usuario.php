@@ -18,7 +18,7 @@
                 <!--ENCABEZADO-->
                 <tr><td><p id="instrucciones"> <b>Personaliza tu perfil</b></p></td></tr>
                 <!--FORMULARIO-->
-                <tr><td><form action="./CRUD/logica/Insercion-Personalizacion-Perfil.php" method="POST">   
+                <tr><td><form action="./logica/Insercion-Personalizacion-Perfil.php" method="POST">   
                         <div class ="fotoPerfil"></div>
 
                         <tr><td><label for="urlFotoPerfil">URL a tu foto de perfil: </label></td></tr>
@@ -35,6 +35,7 @@
                             if(isset($_GET['error'])){
                                 echo "<span>".$GET['error']."</span>";
                             }
+                        ?>
                 </form></td></tr>
 
             

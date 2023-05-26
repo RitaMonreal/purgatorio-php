@@ -1,7 +1,8 @@
 <?php
-    require './CRUD/logica/conexion.php';
+    require './logica/conexion.php';
 
-    $consulta = "SELECT * FROM `publicacion` WHERE categoria_publicacion=3";
+    /*$consulta = "SELECT * FROM `publicacion` WHERE categoria_publicacion=3";*/
+    $consulta = "SELECT * FROM `publicacion`";
     $query = mysqli_query($conexion, $consulta);
   /*  $resultado = mysqli_fetch_array($query);
 
@@ -36,12 +37,13 @@
             </ul>
         </div>
     
-        
-                <div id ="contenedorPublic">
-                <div id="portadaP" style="margin: auto;">
-               <?php
+        <?php
                     $tituloP = mysqli_fetch_array($query);
                ?>
+        
+                <div id ="contenedorPublic">
+                <div id="portadaP" style="margin: auto;" onclick="window.location.href = './NR-Articulo.php?id=<?php echo $tituloP['id_publicacion'];?>'">
+              
            
                     <p id="tituloPrincipal" ><?php echo $tituloP['titulo_publicacion'];?></p>
                 </div>
@@ -49,7 +51,7 @@
                 while($row = mysqli_fetch_array($query)){?>
 
                 
-                <div id="articulo">
+                <div id="articulo" onclick="window.location.href = './NR-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
                     
                     <div id="fotoArticulo" style="background-image: url(./assets/rihanna.jpg); ">
                     

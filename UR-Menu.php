@@ -1,14 +1,13 @@
 <?php
-    require './CRUD/logica/conexion.php';
+    require './logica/conexion.php';
 
-    $consulta = "SELECT * FROM publicacion";
+    /*$consulta = "SELECT * FROM `publicacion` WHERE categoria_publicacion=3";*/
+    $consulta = "SELECT * FROM `publicacion`";
     $query = mysqli_query($conexion, $consulta);
   /*  $resultado = mysqli_fetch_array($query);
 
     var_dump($resultado);*/
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,19 +36,20 @@
     
         <div id="menuSupDer" style="position: fixed;">
             <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
-                <li>Notificaciones</li>
+            <li onclick="location.href = './Bookmarks.html';">Bookmarks</li>
                 <li>Idioma: Español</li>
-                <li>Ayuda</li>
-                <li>Configuración</li>
+                <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
                 <li>Cerrar sesión</li>
             </ul>
         </div> 
 
-        <div id ="contenedorPublic">
-            <div id="portadaP" style="margin: auto;" onclick="window.location.href = './CRUD/logica/Direccionamiento-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
-           <?php
+        <?php
                 $tituloP = mysqli_fetch_array($query);
-           ?>
+        ?>
+
+        <div id ="contenedorPublic">
+            <div id="portadaP" style="margin: auto;" onclick="window.location.href = './UR-Articulo.php?id=<?php echo $tituloP['id_publicacion'];?>'">
+           
        
                 <p id="tituloPrincipal" ><?php echo $tituloP['titulo_publicacion'];?></p>
             </div>
@@ -57,7 +57,7 @@
             while($row = mysqli_fetch_array($query)){?>
 
             
-            <div id="articulo" onclick="window.location.href = './CRUD/logica/Direccionamiento-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
+            <div id="articulo" onclick="window.location.href = './UR-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
                 
                 <div id="fotoArticulo" style="background-image: url(./assets/rihanna.jpg); ">
                 
