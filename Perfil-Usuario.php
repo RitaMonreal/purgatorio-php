@@ -1,5 +1,5 @@
 <?php
-    require './CRUD/logica/conexion.php';
+    require './logica/conexion.php';
 
     $consulta = "SELECT * FROM usuario";
     $query = mysqli_query($conexion, $consulta);

@@ -10,8 +10,8 @@
     $query = mysqli_query($conexion, $consulta);
 
     $publicacion = mysqli_fetch_array($query);
-
-    $consulta = "SELECT * FROM categorias WHERE categoria_publicacion=".$publicacion['categoria_publicacion'];
+    
+    $consulta = "SELECT * FROM categorias_publicacion WHERE id_categoria_publicacion=".$publicacion['id_categoria_publicacion'];
     $query1 = mysqli_query($conexion, $consulta);
 
     $categoriaP = mysqli_fetch_array($query1);
@@ -20,6 +20,9 @@
     $query3 = mysqli_query($conexion, $consulta);
 
     $autorP = mysqli_fetch_array($query3);
+
+    $consulta = "SELECT * FROM `categorias_publicacion`";
+    $query4 = mysqli_query($conexion, $consulta);
 
 ?>
 
@@ -47,17 +50,23 @@
     </div> 
 
     <div id="menuSupIz" style="position: fixed;">
-        <ul  id="tablaIzq" class="izquierdoOculto" style="display: none;">
-            <li>Cine</li>
-            <li>Música</li>
-            <li>Varios</li>
+    <ul  id="tablaIzq" class="izquierdoOculto" style="display: none;">
+    <?php
+            while($row = mysqli_fetch_array($query4)){?>
+                <li onclick="window.location.href = './NR-Menu-Particular.php?id=<?php echo $row['id_categoria_publicacion'];?>'"><?php echo $row['nombre_categoria'] ?></li>
+                
+                <?php
+      
+        }
+        ?>
         </ul>
     </div>
+
     <div class="cuadrodeInicio">
         <div class="cuadrodePublicacion">
             <div class="inicioPublicacion">
                 <div class="tipo">
-                    <a>Portada/</a><a><?php echo $categoriaP['categoria'] ?></a>
+                    <a>Portada/</a><a><?php echo $categoriaP['nombre_categoria'] ?></a>
 
                 </div>
                 <div class="cajadeFecha">

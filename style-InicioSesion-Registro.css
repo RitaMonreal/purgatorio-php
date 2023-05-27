@@ -1,0 +1,160 @@
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#fondoPaginaPromocional{
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#contPrincipalRP{
+    height:95%;
+    width: 44%;
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+    box-shadow: 0px 0px 30px grey;
+}
+
+#contPrincipalIS{
+    height:90%;
+    width: 45%;
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+    box-shadow: 0px 0px 30px grey;
+    position: relative;
+    
+}
+
+table{
+    text-align: center;
+    vertical-align: 50%;
+}
+
+#contenedorTabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+
+td{
+    padding: auto;
+}
+
+label{
+    float:left;
+    margin-left: 10%;
+    font-size: 14px;
+}
+
+input{
+    padding: 9px;
+  /*  border-radius: 12px;*/
+    border-color: rgb(211,211,211);
+    width: 75%;
+    font-size: 16px;
+}
+
+#bienvenida1{
+    font-size: 32px;
+    margin: 0px 0px 5px 0px;
+}
+
+#bienvenida2{
+    font-size: 26px;
+    margin: 0px 20px 0px 20px ;
+}
+
+p{
+    font-size: 13px;
+    margin: 5px 0px 5px 0px;
+}
+
+h3{
+    font-size: 16px;
+    margin: 0px;
+    font-weight: normal;
+
+}
+
+button{
+    padding: 8px;
+    width: 80%;
+   /* border-radius: 20px;*/
+    border-color: transparent;
+    font-size: 16px;
+    
+}
+
+#botonesCont{
+    width: 100%;
+}
+
+#entrar{
+    background-color: rgb(220, 20, 60);
+    color: white;
+}
+
+#facebookB{
+    background-color: rgb(30, 144, 255);
+    color: white;
+    margin-top: 10px;
+}
+
+.textCompleto{
+    font-size: 16px;
+    margin: 0px;
+    padding-right: 3px;
+}
+
+#cerrar{
+    background-color: white;
+    border-radius: 3px;
+    width: 7%;
+    float: right;
+    margin: 10px 15px 0px 0px
+}
+
+.contTextBoton{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 760px){
+    #contPrincipalIS{
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        
+    }
+
+    #contPrincipalRP{
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    button{
+        width: 40%;
+    }
+    
+    .textCompleto{
+        display: none;
+    }
+
+    #cerrar{
+        display: none;
+    }
+}
