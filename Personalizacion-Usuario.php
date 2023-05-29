@@ -1,16 +1,18 @@
 <?php
 
 require './logica/conexion.php';
- /*   session_start();
+    session_start();
 
+   
     if(isset($_SESSION['user'])&& isset($_SESSION['rol'])){
         $user = $_SESSION['user'];
         $rol = $_SESSION['rol'];
     }else{
-        header("Location: http://localhost/Entrega/Inicio-Sesion.php");
+        header("Location: http://localhost/Entrega/Inicio-Sesion.php?no se pudo");
         return;
-    }*/
+    }
 
+    echo($_SESSION['user']);
 
 ?>
 
@@ -57,7 +59,7 @@ require './logica/conexion.php';
                 </form></td></tr>
 
             
-                <tr><td><p style="font-size: 12px;"><a href=./UR-Menu.html>Omitir paso</a></p></td></tr>
+                <tr><td><p style="font-size: 12px;"><a href=./UR-Menu-Portada.php>Omitir paso</a></p></td></tr>
             </table>
          </div>
         </div>

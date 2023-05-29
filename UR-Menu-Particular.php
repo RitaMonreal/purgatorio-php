@@ -64,7 +64,7 @@
                 <li>Idioma: Español</li>
                 <li onclick="location.href = './Perfil-Usuario.php';">Mi perfil</li>
                 <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
-                <li>Cerrar sesión</li>
+                <li><a href=./logica/log-out.php>Cerrar sesión</a></li>
             </ul>
         </div> 
 

@@ -4,10 +4,10 @@ No sé porque no funciona el direccionamiento a el inicio de sesión de fb y goo
 
 <?php
 
-require './logica/conexion.php';
+    require './logica/conexion.php';
+
     
-
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,6 @@ require './logica/conexion.php';
 <body>
     <div id="fondoPaginaPromocional">
         <div id="contPrincipalRP"> 
-            
             <span><button  onclick="history.back()" id ="cerrar">x</button></span><br><br>
             <div id="contenedorTabla">
             <table align="center">
@@ -65,13 +64,11 @@ require './logica/conexion.php';
                             <button id ="facebookB" onclick="location.href='https://es-la.facebook.com/'"><div class="contTextBoton"><p class="textCompleto">Regístrate con <h3> Facebook</h3></p></div></button>
                        </div></td></tr>
 
-                        <!--CHECKBOX   
-                        <tr><td><label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label></td></tr>
-                        <tr><td><label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label></td></tr>-->
+                
 
                         
                         <!--CREACION DE CUENTA, LINKEADA A PÁGINA DE REGISTRO-->
-                        <tr><td><p>¿Ya tienes una cuenta en <b>purgatorio</b>? <a href=./Inicio-Sesion.html>Iniciar sesión</a></p></td></tr>
+                        <tr><td><p>¿Ya tienes una cuenta en <b>purgatorio</b>? <a href=./Inicio-Sesion.php>Iniciar sesión</a></p></td></tr>
                 </form></td></tr>
             </table>
         </div>

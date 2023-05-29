@@ -1,7 +1,7 @@
 <?php
     require './logica/conexion.php';
 
- /*   session_start();
+    session_start();
 
     if(isset($_SESSION['user'])&& isset($_SESSION['rol'])){
         $user = $_SESSION['user'];
@@ -9,13 +9,13 @@
     }else{
         header("Location: http://localhost/Entrega/Inicio-Sesion.php");
         return;
-    }*/
+    }
     
     $consulta = "SELECT * FROM usuario";
     $query = mysqli_query($conexion, $consulta);
-  /*  $resultado = mysqli_fetch_array($query);
+    $resultado = mysqli_fetch_array($query);
 
-    var_dump($resultado);*/
+    var_dump($resultado);
 
      $consulta = "SELECT * FROM `categorias_publicacion`";
     $query4 = mysqli_query($conexion, $consulta);
@@ -68,7 +68,7 @@
                 <li>Idioma: Español</li>
                 <li onclick="location.href = './Perfil-Usuario.php';">Mi perfil</li>
                 <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
-                <li>Cerrar sesión</li>
+                <li><a href=./logica/log-out.php>Cerrar sesión</a></li>
             </ul>
         </div>  
 
@@ -100,34 +100,7 @@
 
         <div id="bookmarks">
           <p style="font-size: 19px; margin: 15px 0px 15px 25px;">Bookmarks > </p>
-          <table width="100%">
-              <tr>
-                <td><div class="guardados"></div></td>
-                <td><div class="guardados"></div></td>
-                <td><div class="guardados"></div></td>
-                <td><div class="guardados"></div></td>
-              </tr>
-            </table>
-       
       </div>
-
-            <div id="siguiendo">
-                <p style="font-size: 19px; margin: 15px 0px 15px 25px;">Siguiendo > </p>
-                <table width="100%">
-                    <tr>
-                      <td><div class="fotoPerfil" style="background-image: url(./assets/lanaIcon.jpg);"></div></td>
-                      <td><div class="fotoPerfil" style="background-image: url(./assets/catIcon.jpg);"></div></td>
-                      <td><div class="fotoPerfil" style="background-image: url(./assets/louisIcon.jpg);"></div></td>
-                      <td><div class="fotoPerfil" style="background-image: url(./assets/tayIcon.jpg);"></div></td>
-                    </tr>
-                    <tr>
-                      <td>@angel5</td>
-                      <td>@luciFer</td>
-                      <td>@Dimas</td>
-                      <td>@Judas</td>
-                    </tr>
-                  </table>
-            </div>
     </div>
   </div>
 

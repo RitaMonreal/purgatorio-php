@@ -2,5 +2,5 @@
     session_start();
     session_destroy();
 
-    header("Location: http://localhost/Entrega/Inicio-Sesion.php?error=Datos incorrectos");
+    header("Location: http://localhost/Entrega/Purgatorio.php");
 ?>

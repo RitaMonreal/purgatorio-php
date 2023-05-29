@@ -51,12 +51,10 @@ Podríamos hacer una página que sea antes de la principal, como referencia tene
                  <button id ="facebookB" onclick="location.href='https://es-la.facebook.com/'"><div class="contTextBoton"><p class="textCompleto">Inicia sesión con <h3> Facebook</h3></p></div></button>
             </div></td></tr>
                 <!--CREACION DE CUENTA, LINKEADA A PÁGINA DE REGISTRO-->
-                <tr><td><p>¿No tiene una cuenta en <b>purgatorio</b>? <a href=./Registro-Plataforma.html>Unirse</a></p></td></tr>
+                <tr><td><p>¿No tiene una cuenta en <b>purgatorio</b>? <a href=./Registro-Plataforma.php>Unirse</a></p></td></tr>
             </table>
          </div>
         </div>
     </div>
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corrupti numquam optio cumque commodi labore beatae eaque error possimus harum! Dolores fugiat atque tempora dolorum ut dolore sit cum blanditiis.
 </body>
 </html>
