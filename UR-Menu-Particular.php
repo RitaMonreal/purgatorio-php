@@ -1,5 +1,17 @@
 <?php
     require './logica/conexion.php';
+
+    session_start();
+
+    if(isset($_SESSION['user'])&& isset($_SESSION['rol'])){
+        $user = $_SESSION['user'];
+        $rol = $_SESSION['rol'];
+    }else{
+        header("Location: http://localhost/Entrega/Inicio-Sesion.php");
+        return;
+    }
+    
+
     if(!isset($_GET['idC'])){
         header("Location: http://localhost/Entrega/NR-Menu-Portada.php?error=No se encontró la categoria");
     }
@@ -50,6 +62,7 @@
             <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
             <li onclick="location.href = './Bookmarks.html';">Bookmarks</li>
                 <li>Idioma: Español</li>
+                <li onclick="location.href = './Perfil-Usuario.php';">Mi perfil</li>
                 <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
                 <li>Cerrar sesión</li>
             </ul>

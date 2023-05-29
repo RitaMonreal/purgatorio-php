@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="style-Menu.css">
 </head>
 <body>  
+
+
     <div class="paginaWeb" style="min-height: 460px;">
         <div class="cuadroOpciones">
                 <div class="imagenOpciones" onclick="toggleLista('tablaIzq')"> </div>

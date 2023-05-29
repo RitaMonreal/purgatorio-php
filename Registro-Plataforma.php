@@ -2,6 +2,14 @@
 No pude implementar los checkbox :((
 No sé porque no funciona el direccionamiento a el inicio de sesión de fb y google en registro-->
 
+<?php
+
+require './logica/conexion.php';
+    
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +32,31 @@ No sé porque no funciona el direccionamiento a el inicio de sesión de fb y goo
                 <tr><td><p id="bienvenida1"> <b>Unirse</b></p></td></tr>
                 <tr><td><p id="bienvenida2">y vive el verdadero libre albedrío</p></td></tr>
                 <!--FORMULARIO-->
-                <tr><td><form action="" method="get">      
+
+
+                <tr><td><form action="./logica/creacion-cuenta.php" method="POST">      
                         
                         <tr><td><label email">Email: </label> </td></tr>          
                         <tr><td> <input type="email" id="email" name="emailNuevoR" placeholder="Email"></td></tr>
 
                         <tr><td><label nombreUsuario">Usuario: </label> </td></tr>          
-                        <tr><td> <input type="text" id="nombreUsuario" name="nombreUsuarioIS" placeholder="Usuario"></td></tr>
+                        <tr><td> <input type="text" id="nombreUsuario" name="nombreUsuarioR" placeholder="Usuario"></td></tr>
                             
                         <tr><td><label for="contraseña">Contraseña: </label></td></tr>
-                        <tr><td><input type="password" id="contraseña" name="contraseñaIS" placeholder="Contraseña"></td></tr>
+                        <tr><td><input type="password" id="contraseña" name="contraseñaR" placeholder="Contraseña"></td></tr>
+
+
+
                         <tr><td> <button id="entrar" type="submit">Crear cuenta</button></td></tr>
+
+                        <?php
+                            if(isset($_GET['error'])){
+                                echo "<span>".$GET['error']."</span>";
+                            }
+                        ?>
+
+
+
                         
                         <!--OTRAS OPCIONES DE REGISTRO-->
                         <tr><td><p>o</p></td></tr>

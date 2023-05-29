@@ -53,7 +53,7 @@
     <ul  id="tablaIzq" class="izquierdoOculto" style="display: none;">
     <?php
             while($row = mysqli_fetch_array($query4)){?>
-                <li onclick="window.location.href = './NR-Menu-Particular.php?id=<?php echo $row['id_categoria_publicacion'];?>'"><?php echo $row['nombre_categoria'] ?></li>
+                <li onclick="window.location.href = './NR-Menu-Particular.php?idC=<?php echo $row['id_categoria_publicacion'];?>'"><?php echo $row['nombre_categoria'] ?></li>
                 
                 <?php
       

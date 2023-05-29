@@ -1,11 +1,24 @@
 <?php
     require './logica/conexion.php';
 
+ /*   session_start();
+
+    if(isset($_SESSION['user'])&& isset($_SESSION['rol'])){
+        $user = $_SESSION['user'];
+        $rol = $_SESSION['rol'];
+    }else{
+        header("Location: http://localhost/Entrega/Inicio-Sesion.php");
+        return;
+    }*/
+    
     $consulta = "SELECT * FROM usuario";
     $query = mysqli_query($conexion, $consulta);
   /*  $resultado = mysqli_fetch_array($query);
 
     var_dump($resultado);*/
+
+     $consulta = "SELECT * FROM `categorias_publicacion`";
+    $query4 = mysqli_query($conexion, $consulta);
 
 ?>
 
@@ -37,22 +50,27 @@
     </div> 
 
     <div id="menuSupIz" style="position: fixed;">
-      <ul  id="tablaIzq" class="izquierdoOculto" style="display: none;">
-          <li>Cine</li>
-          <li>Música</li>
-          <li>Varios</li>
-      </ul>
-  </div>
+    <ul  id="tablaIzq" class="izquierdoOculto" style="display: none;">
+    <?php
+            while($row = mysqli_fetch_array($query4)){?>
+                <li onclick="window.location.href = './UR-Menu-Particular.php?idC=<?php echo $row['id_categoria_publicacion'];?>'"><?php echo $row['nombre_categoria'] ?></li>
+                
+                <?php
+      
+        }
+        ?>
+        </ul>
+    </div>
 
-  <div id="menuSupDer" style="position: fixed;">
-      <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
-          <li>Notificaciones</li>
-          <li>Idioma: Español</li>
-          <li>Ayuda</li>
-          <li>Configuración</li>
-          <li>Cerrar sesión</li>
-      </ul>
-  </div> 
+    <div id="menuSupDer" style="position: fixed;">
+            <ul style="list-style: none; padding-right: 17px; display: none;"id="tablaDer" class="derechoOculto">
+            <li onclick="location.href = './Bookmarks.html';">Bookmarks</li>
+                <li>Idioma: Español</li>
+                <li onclick="location.href = './Perfil-Usuario.php';">Mi perfil</li>
+                <li onclick="location.href = './Acerca-De.html';">Acerca De</li>
+                <li>Cerrar sesión</li>
+            </ul>
+        </div>  
 
         <div id="informacionUsuario">
             <span><button id="cerrar"></button></span> 

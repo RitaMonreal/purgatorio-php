@@ -17,7 +17,7 @@
    if($row['login'] > 0){//Si están bien los datos
         $_SESSION['user'] = $user;
         $_SESSION['rol'] = $row['rol'];
-        header("Location: http://localhost/Entrega/Bienvenida-Administrador.php");
+        header("Location: http://localhost/Entrega/Bienvenida-Usuarios.php");
    }else{
         header("Location: http://localhost/Entrega/Inicio-Sesion.php?error=Datos incorrectos");
    }

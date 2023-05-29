@@ -1,3 +1,21 @@
+<?php
+
+require './logica/conexion.php';
+ /*   session_start();
+
+    if(isset($_SESSION['user'])&& isset($_SESSION['rol'])){
+        $user = $_SESSION['user'];
+        $rol = $_SESSION['rol'];
+    }else{
+        header("Location: http://localhost/Entrega/Inicio-Sesion.php");
+        return;
+    }*/
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
