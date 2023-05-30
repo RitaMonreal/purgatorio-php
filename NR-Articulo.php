@@ -45,8 +45,8 @@
     <div class="cuadroOpciones">
         <div class="imagenOpciones" onclick="toggleLista('tablaIzq')" > </div>
             <div  class="inicio" id="purgatorio"></div>
-            <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.html';">  Unirse </div>
-            <div class="inicio" onclick="location.href = './Inicio-Sesion.html';">Iniciar sesion </div>
+            <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.php';">  Unirse </div>
+            <div class="inicio" onclick="location.href = './Inicio-Sesion.php';">Iniciar sesion </div>
     </div> 
 
     <div id="menuSupIz" style="position: fixed;">
@@ -84,7 +84,7 @@
                 </div>
                 <div id="bookmark"onclick="window.location.href = './Inicio-Sesion.html?id=<?php echo $publicacion['id_publicacion'];?>'"></div>
 
-                <div class="imagenPublicacion">
+                <div class="imagenPublicacion" style="background-image: url(./foto_publicacion/<?php echo $publicacion['foto_publicacion']?>); ">
                    
                 
                 </div>
@@ -95,12 +95,29 @@
                 </div>
                 
             </div>
+
             <div class="seccionComentarios">
-                <div class="foroPlegarias"> Foro de plegarias </div>
-                
-            
-                     <div id="comentarios"></div>                 
-             </div>
+                <div class="foroPlegarias">Foro de plegarias</div>
+                <div id="comentarios">
+                    <?php
+                    // Consulta para obtener los comentarios de la publicación
+                    $consultaComentarios = "SELECT c.*, u.nombre_usuario FROM comentario c INNER JOIN usuario u ON c.id_usuario = u.id_usuario WHERE c.id_publicacion=" . $_GET['id'];
+                    $queryComentarios = mysqli_query($conexion, $consultaComentarios);
+
+                    // Recorre los comentarios y muestra la información
+                    while ($comentario = mysqli_fetch_array($queryComentarios)) {
+                        $likesComentario = $comentario['likes'];
+
+                        echo '<div class="comentarioIndividual" style="margin-bottom: 10px;">';
+                        echo '<img src="./assets/menuUsuario.png" alt="Imagen" width="30" height="30">';
+                        echo '<span class="nombreUsuario">' . $comentario['nombre_usuario'] . ':  </span>';
+                        echo '<span class="textoComentario">' . $comentario['texto_comentario'] . '</span>';
+                        echo '<span class="likesComentario">' . $likesComentario . '     likes</span>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+            </div>
              
           </div>
           <div class="cuadrodeSugerencia">

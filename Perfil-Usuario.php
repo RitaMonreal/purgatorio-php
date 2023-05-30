@@ -11,11 +11,11 @@
         return;
     }
     
-    $consulta = "SELECT * FROM usuario";
+    $consulta = "SELECT * FROM usuario WHERE nombre_usuario="."'$user'";
     $query = mysqli_query($conexion, $consulta);
-    $resultado = mysqli_fetch_array($query);
+    $usuario = mysqli_fetch_array($query);
 
-    var_dump($resultado);
+ //   var_dump($usuario['nombre_usuario']);
 
      $consulta = "SELECT * FROM `categorias_publicacion`";
     $query4 = mysqli_query($conexion, $consulta);
@@ -35,11 +35,6 @@
 
 </head>
 <body>
-
-<?php
-    $usuario = mysqli_fetch_array($query);
-?>
-
 
   <div id="fondo">
     <div id="contenedorGeneral">
@@ -73,20 +68,12 @@
         </div>  
 
         <div id="informacionUsuario">
-            <span><button id="cerrar"></button></span> 
-            <br>
+          
             <br>
             <div class ="fotoPerfil" id ="profilePicture"></div>
             
-            <p style="text-align: center; margin: 1%;">@Usuario</p>
-            <table align="center">
-                <tr>
-                    <td>633</td>
-                  </tr>
-                  <tr>
-                    <th>Followers</th>           
-                  </tr>
-            </table>
+            <p style="text-align: center; margin: 1%; font-size: 28px;">@<?php echo $usuario['nombre_usuario']?></p>
+            
         </div>
         <div id = "biografia">
             <div id="botonesCont">
@@ -94,13 +81,9 @@
                       <button id ="conversaciones" >Conversaciones</button>
                   
             </div>
-                <p style="font-size: 16px; margin-top: 40px; margin-left: 15px; margin-right: 15px"><?php echo $usuario['estado_usuario'] ?></p>
-                <p style="font-size: 14px;"><i>Joined 2023</i></p>
+                <p style="font-size: 24px; margin-top: 40px; margin-left: 15px; margin-right: 15px; margin-bottom: 30px;"><?php echo $usuario['estado_usuario'] ?></p>
+                
         </div>
-
-        <div id="bookmarks">
-          <p style="font-size: 19px; margin: 15px 0px 15px 25px;">Bookmarks > </p>
-      </div>
     </div>
   </div>
 

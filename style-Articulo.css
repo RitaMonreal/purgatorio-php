@@ -113,8 +113,7 @@ body{
 .imagenPublicacion{
   height: 50vh;
   width: 65vw;
-  background-image: url(./assets/taylor.webp) ;
-  background-repeat: no-repeat;
+  /*background-repeat: no-repeat;*/
   background-size:cover;
   align-items: center;
   margin-bottom: 20px;

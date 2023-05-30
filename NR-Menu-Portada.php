@@ -27,8 +27,8 @@
         <div class="cuadroOpciones">
                 <div class="imagenOpciones" onclick="toggleLista('tablaIzq')"> </div>
                 <div  class="inicio" id="purgatorio"></div>
-                <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.html';">  Unirse </div>
-                <div class="inicio" id="iniciarSesion" onclick="location.href = './Inicio-Sesion.html';">Iniciar sesion </div>
+                <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.php';">  Unirse </div>
+                <div class="inicio" id="iniciarSesion" onclick="location.href = './Inicio-Sesion.php';">Iniciar sesion </div>
         </div> 
 
         <div id="menuSupIz" style="position: fixed;">
@@ -60,9 +60,9 @@
                 
                 <div id="articulo" onclick="window.location.href = './NR-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
                     
-                    <div id="fotoArticulo" style="background-image: url(./assets/rihanna.jpg); ">
-                    
-                    </div>
+                <div id="fotoArticulo" style="background-image: url(./foto_publicacion/<?php echo $row['foto_publicacion']?>); ">
+                  
+                  </div>
                     <div id="titulo" style="background:#F5F5F5" onmouseover="this.style.background='black';" onmouseout="this.style.background='#F5F5F5';">
                     
                     <p onmouseenter="changecolor(this)" onmouseleave="setnormal(this)"><?php echo $row['titulo_publicacion'] ?></p> 

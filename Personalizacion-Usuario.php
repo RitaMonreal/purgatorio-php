@@ -42,8 +42,12 @@
                 <tr><td><form action="./logica/editar-perfil.php" method="POST">   
                         <div class ="fotoPerfil"></div>
 
+                        
+                       
+
                         <tr><td><label for="urlFotoPerfil">URL a tu foto de perfil: </label></td></tr>
-                        <tr><td><input type="text" name="urlFotoPerfil" placeholder="URL..." value="<?php echo $row['foto_usuario'];?>"></td></tr>
+                        <tr><td><input type="file" id="imagen_publicacion_nueva" name="urlFotoPerfil"><tr><td>
+                        
 
 
                         <tr><td><label for=informacionU" >Informacion: </label> </td></tr>          

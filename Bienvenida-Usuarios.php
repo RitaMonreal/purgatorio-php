@@ -32,7 +32,7 @@
                     if($rol=="admin"){
                 ?>
 
-                        <tr><td> <button id="configurar" onclick="window.location.href='./Agregar_Publicacion.html'">Trabaja con los articulos</button></td></tr>   
+                        <tr><td> <button id="configurar" onclick="window.location.href='./Agregar-Publicacion.php'">Trabaja con los articulos</button></td></tr>   
                 <?php                        
                     }
                 ?>

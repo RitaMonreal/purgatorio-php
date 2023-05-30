@@ -78,8 +78,8 @@
             
             <div id="articulo" onclick="window.location.href = './UR-Articulo.php?id=<?php echo $row['id_publicacion'];?>'">
                 
-                <div id="fotoArticulo" style="background-image: url(./assets/rihanna.jpg); ">
-                
+                <div id="fotoArticulo" style="background-image: url(./foto_publicacion/<?php echo $row['foto_publicacion']?>); ">
+                  
                 </div>
                 <div id="titulo" style="background:#F5F5F5" onmouseover="this.style.background='black';" onmouseout="this.style.background='#F5F5F5';">
                 
