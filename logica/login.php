@@ -7,11 +7,11 @@
      var_dump($_POST);
      $consulta = "SELECT COUNT(*) as login, rol FROM usuario WHERE nombre_usuario='". $user ."' AND contraseña='". $pass ."'";
 
-    //echo $consulta;
+    echo $consulta;
    $query = mysqli_query($conexion, $consulta);
    $row = mysqli_fetch_array($query);
 
-   //var_dump($row);
+   var_dump($row);
 
    session_start();
 

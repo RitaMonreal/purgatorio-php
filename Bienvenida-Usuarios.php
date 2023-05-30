@@ -27,7 +27,7 @@
             <div id ="contenedorTabla">
                 <table align="center">
                 <!--ENCABEZADO-->
-                <tr><td><p id="instrucciones"> <b>Nos encanta verte de regreso <?php echo $user?></b></p></td></tr>
+                <tr><td><p id="instrucciones"> <b>Nos encanta tenerte aquí <?php echo $user?></b></p></td></tr>
                 <?php
                     if($rol=="admin"){
                 ?>
@@ -37,7 +37,9 @@
                     }
                 ?>
                 
-                tr><td> <button id="configurar" onclick="window.location.href='./UR-Menu-Portada.php'">Entrar al purgatorio</button></td></tr>     
+                <tr><td> <button id="configurar" onclick="window.location.href='./UR-Menu-Portada.php'">Entrar al purgatorio</button></td></tr>     
+                <tr><td> <button id="configurar" onclick="window.location.href='./Personalizacion-Usuario.php?username=<?php echo $user;?>'">Personaliza tu perfil</button></td></tr>   
+                
             
                 <tr><td><p style="font-size: 18px;"><a href=./logica/log-out.php>Cerrar sesión</a></p></td></tr>
             </table>

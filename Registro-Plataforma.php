@@ -35,13 +35,13 @@ No sé porque no funciona el direccionamiento a el inicio de sesión de fb y goo
 
                 <tr><td><form action="./logica/creacion-cuenta.php" method="POST">      
                         
-                        <tr><td><label email">Email: </label> </td></tr>          
-                        <tr><td> <input type="email" id="email" name="emailNuevoR" placeholder="Email"></td></tr>
+                        <tr><td><label for=emailR">Email: </label> </td></tr>          
+                        <tr><td> <input type="email" id="email" name="emailR" placeholder="Email"></td></tr>
 
-                        <tr><td><label nombreUsuario">Usuario: </label> </td></tr>          
+                        <tr><td><label for=nombreUsuarioR">Usuario: </label> </td></tr>          
                         <tr><td> <input type="text" id="nombreUsuario" name="nombreUsuarioR" placeholder="Usuario"></td></tr>
                             
-                        <tr><td><label for="contraseña">Contraseña: </label></td></tr>
+                        <tr><td><label for="contraseñaR">Contraseña: </label></td></tr>
                         <tr><td><input type="password" id="contraseña" name="contraseñaR" placeholder="Contraseña"></td></tr>
 
 
