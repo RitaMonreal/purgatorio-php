@@ -65,12 +65,12 @@ input{
     width: 80px;
     display: flex;
     border-radius: 250px;
+    background-color: black;
     background-repeat: no-repeat;
     background-size: contain;
     margin: 0 auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    background-image: url("./assets/harryIcon.jpg");
 }
 
 #configurar{

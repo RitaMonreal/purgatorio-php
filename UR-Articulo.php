@@ -6,8 +6,8 @@
         header("Location: http://localhost/Entrega/NR-Menu.php?error=No se econtró el articulo");
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['comment'])) {
-            $comentario = $_POST['comment'];
+        if (isset($_POST['commentButton'])) {
+            $comentario = $_POST['commentButton'];
              // Obtén la ID de la publicación del campo oculto
             $idPublicacion = $_POST['id_publicacion'];
 
@@ -25,13 +25,24 @@
             $consultaInsertarComentario = "INSERT INTO comentario (id_usuario, id_publicacion, texto_comentario, likes) VALUES ('$idUsuario', '$idPublicacion', '$comentario', 0)";
             mysqli_query($conexion, $consultaInsertarComentario);
             }
-        } elseif (isset($_POST['like'])) {
-            $idComentario = $_POST['like'];
-    
-            // Insertar el like en la base de datos
-            $consultaInsertarLike = "UPDATE comentario SET likes = likes + 1 WHERE id_comentario = '$idComentario'";
-            mysqli_query($conexion, $consultaInsertarLike);
+        } else {
+            if (isset($_POST['likeButton'])) {
+            $idComentario = $_POST['likeButton'];
+        
+            // Obtener la cantidad actual de likes del comentario
+            $consultaLikes = "SELECT likes FROM comentario WHERE id_comentario = '$idComentario'";
+            $queryLikes = mysqli_query($conexion, $consultaLikes);
+            $likesComentario = mysqli_fetch_assoc($queryLikes);
+            $likesActuales = $likesComentario['likes'];
+            
+            // Incrementar la cantidad de likes del comentario
+            $nuevosLikes = $likesActuales + 1;
+            
+            // Actualizar la cantidad de likes en la base de datos
+            $consultaActualizarLikes = "UPDATE comentario SET likes = '$nuevosLikes' WHERE id_comentario = '$idComentario'";
+            mysqli_query($conexion, $consultaActualizarLikes);
         }
+    }
     }
        
     $consulta = "SELECT * FROM publicacion WHERE id_publicacion=".$_GET['id'];
@@ -52,6 +63,10 @@
     $consulta = "SELECT * FROM `categorias_publicacion`";
     $query4 = mysqli_query($conexion, $consulta);
 
+    $consulta = "SELECT * FROM publicacion WHERE sugerencia= 'si'";
+    $query7 = mysqli_query($conexion, $consulta);
+
+
 ?>
 
 
@@ -71,7 +86,7 @@
 <div class="paginaWeb">
     <div class="cuadroOpciones">
             <div class="imagenOpciones" onclick="toggleLista('tablaIzq')" > </div>
-            <div  class="inicio" id="purgatorio"></div>
+            <div  class="inicio" id="purgatorio" onclick="location.href = './UR-Menu-Portada.php';"></div>
             <div class="inicio" id="usuario" onclick="toggleLista('tablaDer')"></div>
     </div> 
 
@@ -138,7 +153,7 @@
                 <form id="form-comentario" method="post" action="UR-Articulo.php?id=<?php echo $_GET['id']; ?>">
                 <input type="hidden" name="id_publicacion" value="<?php echo $_GET['id']; ?>">
                 <textarea id="comment" name="comment"></textarea>
-                <button type="submit">Enviar</button>
+                <button name="commentButton" type="submit">Enviar</button>
 
                 <div id="comentarios">
                     <?php
@@ -164,7 +179,7 @@
                         echo '<span class="textoComentario">' . $comentario['texto_comentario'] . '</span>';
                         echo '<span class="likesComentario">' . $likesComentario['likes'] . ' likes</span>';
                         echo '<form method="post" action="NR-Articulo.php?id=' . $_GET['id'] . '">';
-                        echo '<button type="submit" name="like" value="' . $comentario['id_comentario'] . '">Me gusta</button>';// se utiliza específicamente para el procesamiento de los likes de los comentarios.
+                        echo '<button type="submit" name="likeButton" value="' . $comentario['id_comentario'] . '">Me gusta</button>';// se utiliza específicamente para el procesamiento de los likes de los comentarios.
                         echo '</form>';
                         echo '</div>';
                     }
@@ -176,34 +191,22 @@
          </div><!-- Este div ya estaba -->
         <div class="cuadrodeSugerencia">
            <div class="sugerencias"> Sugerencias</div>
-            <div class="sugerenciaPublicaciones">
-                <div >
-                    <img src="./assets/Rihanna" alt="Descripción de la imagen" class="sugerenciaImagen">
+           <?php
+            while($sugerencia = mysqli_fetch_array($query7)){?>
+             <div class="sugerenciaPublicaciones" onclick="window.location.href = './UR-Articulo.php?id=<?php echo $sugerencia['id_publicacion'];?>'">
+                 <div >
+                     <img src="./foto_publicacion/<?php echo $sugerencia['foto_publicacion']?>" alt="Descripción de la imagen" class="sugerenciaImagen">
+ 
+                 </div>
+                 <div class="contenidoSugerencia">
+          
+                   <a style="font-size: 15px;"><?php echo $sugerencia['titulo_publicacion']?></a>
+                 </div>
+             </div>
 
-                </div>
-                <div class="contenidoSugerencia">
-         
-                  <a>La cantante Rihanna sorprende a sus fans con su nuevo sencillo 'El pacto con el demonio'"</a>
-                </div>
-            </div>
-            <div class="sugerenciaPublicaciones">
-                <div >
-                    <img src="./assets/angeles.jpg" alt="Descripción de la imagen" class="sugerenciaImagen">
-                </div>
-                <div class="contenidoSugerencia">
-                  <a>El jugador de baloncesto LeBron James se inspira en los ángeles y los demonios para su nueva línea de zapatillas</a>
-                </div>
-                
-            </div>
-            <div class="sugerenciaPublicaciones">
-                <div >
-                    <img src="./assets/raven age.jpg" alt="Descripción de la imagen" class="sugerenciaImagen">
-                </div>
-                <div class="contenidoSugerencia">
-                  <a>Raven Age "El camino hacia el poder está pavimentado con sacrificios"</a>
-                </div>
-                
-            </div>
+        <?php     
+            }
+        ?>
         
         </div>
 
@@ -220,67 +223,24 @@
         const comentarios = [];
 
         // Función para agregar un comentario al array
-        function agregarComentario(comentario) {
-        comentarios.push({
-            comentario: comentario,
-            likes: 0
-        });
-        borrarComentario();
-        }
 
-        // Función para renderizar los comentarios en el DOM
-        function renderizarComentarios() {
-        // Ordenamos los comentarios según la cantidad de likes
-        comentarios.sort((a, b) => b.likes - a.likes);
-        // Obtenemos el div donde se mostrarán los comentarios
-        const comentariosDiv = document.getElementById('comentarios');
-        // Limpiamos el div antes de renderizar los comentarios
-        comentariosDiv.innerHTML = '';
-        // Recorremos los comentarios y creamos un div para cada uno
-        //usuario 
-        //comentario
-        //likes
-        comentarios.forEach(comentario => {
-            const div = document.createElement('div');
-            div.setAttribute('class', 'comentarioIndividual');
-            div.innerHTML = `
-            <img src="./assets/menuUsuario.png" alt="Imagen" width="30" height="30">
-            <strong>${usuarioComentario['nombre_usuario']}:</strong> ${comentario.comentario}
-            <button class="like-btn">Like (${comentario.likes})</button>
-            `;
-            // Añadimos un event listener al botón de like para aumentar la cantidad de likes del comentario
-            const formComentario = document.getElementById('form-comentario');
-            formComentario.addEventListener('submit', event => {
-                event.preventDefault();
-                const comentarioText = document.getElementById('comment').value;
+        function agregarComentario(comentario, idComentario) {
 
-                // Verificar si el usuario ya ha dado "me gusta" al comentario actual
-                const hasLiked = comentarios.some(comentario => comentario.comentario === comentarioText && comentario.likes > 0);
+comentarios.push({
 
-                if (!hasLiked) {
-                    agregarComentario(comentarioText);
-                    renderizarComentarios();
-                } else {
-                    alert('Ya has dado "me gusta" a este comentario');
-                }
+    idComentario: idComentario,
 
-                document.getElementById('comment').value = '';
-            });
-        });
-        }
+    comentario: comentario,
 
-        // Obtenemos el formulario y le añadimos un event listener para agregar un comentario al array y renderizar los comentarios
-        const formComentario = document.getElementById('form-comentario');
-        formComentario.addEventListener('submit', event => {
-        event.preventDefault();
-        const comentarioText = document.getElementById('comment');
-        agregarComentario(comentarioText.value);
-        comentarioText.value = '';
-        renderizarComentarios();
-        });
+    likes: 0
 
-        // Renderizamos los comentarios por primera vez
-        renderizarComentarios();
+});
+
+borrarComentario();
+
+}
+
+        
         
         function borrarComentario()
         {

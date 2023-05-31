@@ -39,14 +39,14 @@
                 <!--ENCABEZADO-->
                 <tr><td><p id="instrucciones"> <b>Personaliza tu perfil</b> <?php echo $user?></p></td></tr>
                 <!--FORMULARIO-->
-                <tr><td><form action="./logica/editar-perfil.php" method="POST">   
+                <tr><td><form action="./logica/editar-perfil.php" method="POST" enctype="multipart/form-data">   
                         <div class ="fotoPerfil"></div>
 
                         
                        
 
-                        <tr><td><label for="urlFotoPerfil">URL a tu foto de perfil: </label></td></tr>
-                        <tr><td><input type="file" id="imagen_publicacion_nueva" name="urlFotoPerfil"><tr><td>
+                        <tr><td><label for="image">URL a tu foto de perfil: </label></td></tr>
+                        <tr><td><input type="file" name="image"><tr><td>
                         
 
 

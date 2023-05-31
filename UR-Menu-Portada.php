@@ -35,7 +35,7 @@
     <div class="paginaWeb" style="min-height: 460px;">
         <div class="cuadroOpciones">
             <div class="imagenOpciones" onclick="toggleLista('tablaIzq')"> </div>
-            <div  class="inicio" id="purgatorio"></div>
+            <div  class="inicio" id="purgatorio" onclick="location.href = './UR-Menu-Portada.php';"></div>
             <div class="inicio" id="usuario" onclick="toggleLista('tablaDer')"></div>
         </div> 
 

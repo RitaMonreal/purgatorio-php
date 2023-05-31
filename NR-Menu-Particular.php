@@ -31,7 +31,7 @@
     <div class="paginaWeb" style="min-height: 460px;">
         <div class="cuadroOpciones">
                 <div class="imagenOpciones" onclick="toggleLista('tablaIzq')"> </div>
-                <div  class="inicio" id="purgatorio"></div>
+                <div  class="inicio" id="purgatorio" onclick="location.href = './NR-Menu-Portada.php';"></div>
                 <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.php';">  Unirse </div>
                 <div class="inicio" id="iniciarSesion" onclick="location.href = './Inicio-Sesion.php';">Iniciar sesion </div>
         </div> 

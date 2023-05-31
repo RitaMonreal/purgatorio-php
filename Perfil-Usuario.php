@@ -40,7 +40,7 @@
     <div id="contenedorGeneral">
       <div class="cuadroOpciones">
         <div class="imagenOpciones" onclick="toggleLista('tablaIzq')"> </div>
-        <div  class="inicio" id="purgatorio"></div>
+        <div  class="inicio" id="purgatorio" onclick="location.href = './UR-Menu-Portada.php';"></div>
         <div class="inicio" id="usuario" onclick="toggleLista('tablaDer')"></div>
     </div> 
 
@@ -70,7 +70,8 @@
         <div id="informacionUsuario">
           
             <br>
-            <div class ="fotoPerfil" id ="profilePicture"></div>
+            <div class ="fotoPerfil" id ="profilePicture" style="background-image: url(./foto_publicacion/<?php echo $usuario['foto_usuario']?>);"></div>
+
             
             <p style="text-align: center; margin: 1%; font-size: 28px;">@<?php echo $usuario['nombre_usuario']?></p>
             

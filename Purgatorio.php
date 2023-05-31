@@ -14,7 +14,7 @@
     <div id="fondo">
         <div id="contenedorGeneral">
             <div class="cuadroOpciones">
-                <div id="purgatorio"> </div>
+                <div id="purgatorio" onclick="location.href = './NR-Menu-Portada.php';"> </div>
                     <div id ="acercaDe" onclick="location.href = './Acerca-De.html';">Acerca de </div>
                     <div class="inicio" onclick="location.href = './Registro-Plataforma.php';" id="unirse" > Unirse </div>
                     <div class="inicio" onclick="location.href = './Inicio-Sesion.php';">Iniciar sesion </div>

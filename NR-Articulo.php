@@ -24,6 +24,9 @@
     $consulta = "SELECT * FROM `categorias_publicacion`";
     $query4 = mysqli_query($conexion, $consulta);
 
+    $consulta = "SELECT * FROM publicacion WHERE sugerencia= 'si'";
+    $query7 = mysqli_query($conexion, $consulta);
+
 ?>
 
 
@@ -44,7 +47,7 @@
 <div class="paginaWeb">
     <div class="cuadroOpciones">
         <div class="imagenOpciones" onclick="toggleLista('tablaIzq')" > </div>
-            <div  class="inicio" id="purgatorio"></div>
+            <div  class="inicio" id="purgatorio" onclick="location.href = './NR-Menu-Portada.php';"></div>
             <div class="inicio" id="unirse" onclick="location.href = './Registro-Plataforma.php';">  Unirse </div>
             <div class="inicio" onclick="location.href = './Inicio-Sesion.php';">Iniciar sesion </div>
     </div> 
@@ -122,34 +125,23 @@
           </div>
           <div class="cuadrodeSugerencia">
             <div class="sugerencias"> Sugerencias</div>
-             <div class="sugerenciaPublicaciones">
+
+        <?php
+            while($sugerencia = mysqli_fetch_array($query7)){?>
+             <div class="sugerenciaPublicaciones" onclick="window.location.href = './NR-Articulo.php?id=<?php echo $sugerencia['id_publicacion'];?>'">
                  <div >
-                     <img src="./assets/Rihanna" alt="Descripción de la imagen" class="sugerenciaImagen">
+                     <img src="./foto_publicacion/<?php echo $sugerencia['foto_publicacion']?>" alt="Descripción de la imagen" class="sugerenciaImagen">
  
                  </div>
                  <div class="contenidoSugerencia">
           
-                   <a>La cantante Rihanna sorprende a sus fans con su nuevo sencillo 'El pacto con el demonio'"</a>
+                   <a><?php echo $sugerencia['titulo_publicacion']?></a>
                  </div>
              </div>
-             <div class="sugerenciaPublicaciones">
-                 <div >
-                     <img src="./assets/angeles.jpg" alt="Descripción de la imagen" class="sugerenciaImagen">
-                 </div>
-                 <div class="contenidoSugerencia">
-                   <a>El jugador de baloncesto LeBron James se inspira en los ángeles y los demonios para su nueva línea de zapatillas</a>
-                 </div>
-                 
-             </div>
-             <div class="sugerenciaPublicaciones">
-                 <div >
-                     <img src="./assets/raven age.jpg" alt="Descripción de la imagen" class="sugerenciaImagen">
-                 </div>
-                 <div class="contenidoSugerencia">
-                   <a>Raven Age "El camino hacia el poder está pavimentado con sacrificios"</a>
-                 </div>
-                 
-             </div>
+
+        <?php     
+            }
+        ?>
          
          </div>
  
